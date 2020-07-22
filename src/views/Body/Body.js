@@ -32,17 +32,22 @@ class Body extends Component{
         const {chosenPicture} = this.state;
         const {pictures, choosePicture} = this.props;
 
-        return pictures === null ? null : (
+        return (
             <div className={'body'}>
                 {
-                    pictures.map((p, i) => <PictureCard key={`picture-${i}`} picture={p} onClick={this.onClick}/>)
-                }
-                {
-                    chosenPicture === null ? null :
-                        <Modal open={chosenPicture !== null}
-                               close={() => choosePicture(null)}
-                               picture={chosenPicture}
-                        />
+                    pictures === null ? null :
+                        <>
+                            {
+                                pictures.map((p, i) => <PictureCard key={`picture-${i}`} picture={p} onClick={this.onClick}/>)
+                            }
+                            {
+                                chosenPicture === null ? null :
+                                    <Modal open={chosenPicture !== null}
+                                           close={() => choosePicture(null)}
+                                           picture={chosenPicture}
+                                    />
+                            }
+                        </>
                 }
             </div>
         )

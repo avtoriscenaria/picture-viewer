@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import './styles.scss';
 import Header from "../Header/Header";
 import Body from "../Body/Body";
 import {ajax} from "../../utils";
