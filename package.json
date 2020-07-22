@@ -2,13 +2,12 @@
   "name": "picture-viewer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://avtoriscenaria.github.io/picture-viewer/",
+  "homepage": "httpы://avtoriscenaria.github.io/picture-viewer",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "date-fns": "^2.15.0",
-    "gh-pages": "^3.1.0",
     "icomoon-react": "^2.0.16",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
@@ -22,9 +21,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "yarn build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -b master -d build",
-    "clean": "gh-pages-clean",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -42,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
   }
 }

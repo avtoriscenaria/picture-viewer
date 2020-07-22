@@ -1,0 +1,126 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .backdrop {
+    //position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.4;
+  }
+
+  .modal-container {
+    position: absolute;
+    background-color: white;
+    z-index: 10;
+    max-width: 80vw;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    box-shadow: 0 0 20px white;
+    min-width: 600px;
+    width: 665px;
+    min-height: 710px;
+    height: 800px;
+
+    .close {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 15;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .picture-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      height: 70%;
+      min-height: 70%;
+      padding: 20px;
+      position: relative;
+
+      .loader {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 70px;
+      }
+
+      .ghost-pic {
+        position: absolute;
+        top: -99999999px
+      }
+
+      .picture {
+        opacity: 0;
+        &.load {
+          opacity: 1;
+        }
+
+        height: auto;
+        width: 100%;
+
+        &.vertical {
+          height: 100%;
+          width: auto;
+        }
+      }
+    }
+    .picture-info {
+      padding: 0 20px;
+      overflow: auto;
+      .title-and-date {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        padding-bottom: 10px;
+        .title {
+          font-size: 16px;
+          font-weight: bold;
+          width: 100%;
+          padding-right: 20px;
+        }
+        .day-picture {
+          font-size: 14px;
+          color: #FFB100;
+          white-space: nowrap;
+          padding: 0 20px;
+          font-weight: bold;
+        }
+        .picture-date {
+          white-space: nowrap;
+          font-size: 14px;
+        }
+      }
+      .description {
+        text-align: left;
+        padding-bottom: 10px;
+      }
+      .copyright {
+        text-align: right;
+        font-size: 11px;
+      }
+    }
+  }
+}
