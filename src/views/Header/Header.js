@@ -3,19 +3,27 @@ import './styles.scss';
 import DatePicker, {registerLocale} from "react-datepicker";
 import ru from 'date-fns/locale/ru';
 import "react-datepicker/dist/react-datepicker.css";
-import ajax from "../../utils/ajax";
+import {ajax, dateFormater} from "../../utils";
 import {api} from "../../constants/api";
 import connect from "react-redux/es/connect/connect";
-import {setPictures} from "../../redux/actions";
-import dateFormater from "../../utils/dateFormater";
+import {setPictures, choosePicture} from "../../redux/actions";
+import {Button} from "../../components";
+import t from '../../constants/ru';
+import pictures from "../../redux/reducers/pictures";
 
 registerLocale('ru', ru);
+
+const dataPic = [
+    {"copyright":"Zixuan LinBeijing Normal U.","date":"2020-07-22","explanation":"What is creating the structure in Comet NEOWISE's tails? Of the two tails evident, the blue ion tail on the left points directly away from the Sun and is pushed out by the flowing and charged solar wind. Structure in the ion tail comes from different rates of expelled blue-glowing ions from the comet's nucleus, as well as the always complex and continually changing structure of our Sun's wind. Most unusual for Comet C/2020 F3 (NEOWISE), though, is the wavy structure of its dust tail. This dust tail is pushed out by sunlight, but curves as heavier dust particles are better able to resist this light pressure and continue along a solar orbit.  Comet NEOWISE's impressive dust-tail striations are not fully understood, as yet, but likely related to rotating streams of sun-reflecting grit liberated by ice melting on its 5-kilometer wide nucleus.  The featured 40-image conglomerate, digitally enhanced, was captured three days ago through the dark skies of the Gobi Desert in Inner Mongolia, China. Comet NEOWISE will make it closest pass to the Earth tomorrow as it moves out from the Sun. The comet, already fading but still visible to the unaided eye, should fade more rapidly as it recedes from the Earth.    Notable NEOWISE Images Submitted to APOD: July  21 || 20 || 19  || 18   || 17   || 16   || 15  || 14  || 13  || 12  || 11  || 10 & earlier ||","hdurl":"https://apod.nasa.gov/apod/image/2007/Neowise_Lin_3884.jpg","media_type":"image","service_version":"v1","title":"The Structured Tails of Comet NEOWISE","url":"https://apod.nasa.gov/apod/image/2007/Neowise_Lin_960.jpg"}
+];
+
 
 class Header extends Component{
 
     state = {
         startDate: new Date(),
-        endDate: new Date()
+        endDate: new Date(),
+        disabled: false
     };
 
     componentDidMount() {
@@ -72,6 +80,8 @@ class Header extends Component{
 
         if (res.ok) {
             setPictures(res.data)
+        } else {
+            alert('REQUEST ERROR')
         }
     };
 
@@ -82,30 +92,54 @@ class Header extends Component{
         </div>
     };
 
+    getDayPicture = async () => {
+        const {choosePicture} = this.props;
+        this.setState({disabled: true});
+
+        let res = await ajax(api.get_pictures);
+
+        if (res.ok) {
+            await choosePicture(res.data)
+        } else {
+            await choosePicture(dataPic[0])
+        }
+
+        this.setState({disabled: false})
+    };
+
 
     render() {
-        const {startDate, endDate} = this.state;
+        const {startDate, endDate, disabled} = this.state;
 
         return (
             <div className='header'>
-                <div className={'date-picker start-date'}>
-                    <DatePicker
-                        maxDate={endDate}
-                        locale="ru"
-                        selected={startDate}
-                        onChange={date => this.handleChange('startDate', date)}
-                        customInput={<this.dateButton />}
-                    />
+                <div className={'left-part'}>
+                    <Button label={t.picture_of_the_day}/>
                 </div>
-                -
-                <div className={'date-picker end-date'}>
-                    <DatePicker
-                        minDate={startDate}
-                        locale="ru"
-                        selected={endDate}
-                        onChange={date => this.handleChange('endDate', date)}
-                        customInput={<this.dateButton />}
-                    />
+                <div className={'center-part'}>
+                    <div className={'date-picker start-date'}>
+                        <DatePicker
+                            maxDate={endDate}
+                            locale="ru"
+                            selected={startDate}
+                            onChange={date => this.handleChange('startDate', date)}
+                            customInput={<this.dateButton />}
+                        />
+                    </div>
+                    -
+                    <div className={'date-picker end-date'}>
+                        <DatePicker
+                            minDate={startDate}
+                            maxDate={new Date()}
+                            locale="ru"
+                            selected={endDate}
+                            onChange={date => this.handleChange('endDate', date)}
+                            customInput={<this.dateButton />}
+                        />
+                    </div>
+                </div>
+                <div className={'right-part'}>
+                    <Button label={t.picture_of_the_day} disabled={disabled} onClick={this.getDayPicture}/>
                 </div>
             </div>
         )
@@ -117,7 +151,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    setPictures: pictures => dispatch(setPictures(pictures))
+    setPictures: pictures => dispatch(setPictures(pictures)),
+    choosePicture: picture => dispatch(choosePicture(picture))
 });
 
 export default connect(
