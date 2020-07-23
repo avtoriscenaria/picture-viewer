@@ -113,6 +113,8 @@
     .picture-info {
       padding: 0 20px;
       overflow: auto;
+      overflow-x: hidden;
+
       .title-and-date {
         display: flex;
         align-items: center;
@@ -124,16 +126,25 @@
           width: 100%;
           padding-right: 20px;
         }
-        .day-picture {
-          font-size: 14px;
-          color: #FFB100;
-          white-space: nowrap;
-          padding: 0 20px;
-          font-weight: bold;
-        }
-        .picture-date {
-          white-space: nowrap;
-          font-size: 14px;
+
+        .title-info {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: flex-end;
+
+          .day-picture {
+            font-size: 14px;
+            color: #FFB100;
+            white-space: nowrap;
+            padding-left: 20px;
+            font-weight: bold;
+          }
+          .picture-date {
+            white-space: nowrap;
+            font-size: 14px;
+            padding-left: 20px;
+          }
         }
       }
       .description {

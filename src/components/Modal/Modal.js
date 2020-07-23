@@ -145,11 +145,13 @@ export default class Modal extends Component{
                     <div className={'picture-info'}>
                         <div className={'title-and-date'}>
                             <div className={'title'}>{title}</div>
-                            {
-                                !dayPic ? null :
-                                    <div className={'day-picture'}>{t.picture_of_the_day}</div>
-                            }
-                            <div className={'picture-date'}>{date}</div>
+                            <div className={'title-info'}>
+                                {
+                                    !dayPic ? null :
+                                        <div className={'day-picture'}>{t.picture_of_the_day}</div>
+                                }
+                                <div className={'picture-date'}>{date}</div>
+                            </div>
                         </div>
                         <div className={'description'}>{explanation}</div>
                         <div className={'copyright'}>{`© ${copyright}`}</div>

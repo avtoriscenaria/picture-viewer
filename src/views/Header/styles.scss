@@ -47,7 +47,16 @@
       align-items: center;
       justify-content: center;
 
-      .react-datepicker__day {
+      .react-datepicker-popper {
+        @media (max-width: $mobile) {
+          transform: none !important;
+          position: fixed !important;
+          top: 45px !important;
+          left: calc((100% - 242px)/2) !important;
+        }
+      }
+
+      .react-datepicker__day, .react-datepicker__navigation {
         outline: none;
       }
 
@@ -57,6 +66,13 @@
 
       &.end-date {
         margin-left: 10px;
+
+        @media (max-width: $mobile) {
+          .react-datepicker__triangle {
+            right: 41px;
+            left: auto !important;
+          }
+        }
       }
 
       .date-button {
