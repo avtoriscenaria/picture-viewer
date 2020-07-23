@@ -38,7 +38,7 @@ class Body extends Component{
                     pictures === null ? null :
                         <>
                             {
-                                pictures.map((p, i) => <PictureCard key={`picture-${i}`} picture={p} onClick={this.onClick}/>)
+                                pictures.reverse().map((p, i) => <PictureCard key={`picture-${i}`} picture={p} onClick={this.onClick}/>)
                             }
                             {
                                 chosenPicture === null ? null :
