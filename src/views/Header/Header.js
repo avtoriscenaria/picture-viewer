@@ -73,8 +73,8 @@ class Header extends Component{
         const {setPictures} = this.props;
         const {startDate: start, endDate: end} = this.state;
 
-        let start_date = `${start.getFullYear()}-${start.getMonth()}-${start.getDate()}`;
-        let end_date = `${end.getFullYear()}-${end.getMonth()}-${end.getDate()}`;
+        let start_date = `${start.getFullYear()}-${start.getMonth()+1}-${start.getDate()}`;
+        let end_date = `${end.getFullYear()}-${end.getMonth()+1}-${end.getDate()}`;
 
         let res = await ajax(api.get_pictures, {start_date, end_date});
 
