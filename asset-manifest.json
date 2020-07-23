@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/static/css/main.27675972.chunk.css",
+    "main.js": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/static/js/main.d1d4b051.chunk.js",
+    "main.js.map": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/static/js/main.d1d4b051.chunk.js.map",
+    "runtime-main.js": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/static/js/runtime-main.9f13a65c.js",
+    "runtime-main.js.map": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/static/js/runtime-main.9f13a65c.js.map",
+    "static/css/2.25ff2e5b.chunk.css": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/static/css/2.25ff2e5b.chunk.css",
+    "static/js/2.3ff20e14.chunk.js": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/static/js/2.3ff20e14.chunk.js",
+    "static/js/2.3ff20e14.chunk.js.map": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/static/js/2.3ff20e14.chunk.js.map",
+    "index.html": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/index.html",
+    "precache-manifest.7cc457513a5de7ad66142be5b3f56c09.js": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/precache-manifest.7cc457513a5de7ad66142be5b3f56c09.js",
+    "service-worker.js": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/service-worker.js",
+    "static/css/2.25ff2e5b.chunk.css.map": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/static/css/2.25ff2e5b.chunk.css.map",
+    "static/css/main.27675972.chunk.css.map": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/static/css/main.27675972.chunk.css.map",
+    "static/js/2.3ff20e14.chunk.js.LICENSE.txt": "/http%D1%8B://avtoriscenaria.github.io/picture-viewer/static/js/2.3ff20e14.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9f13a65c.js",
+    "static/css/2.25ff2e5b.chunk.css",
+    "static/js/2.3ff20e14.chunk.js",
+    "static/css/main.27675972.chunk.css",
+    "static/js/main.d1d4b051.chunk.js"
+  ]
+}
