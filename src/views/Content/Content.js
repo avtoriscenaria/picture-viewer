@@ -39,7 +39,6 @@ class Content extends Component{
     getPicture = async (date) => {
 
         let res = await ajax(api.get_pictures, date);
-        //let res = {};
 
         if (res.ok) {
             if (Array.isArray(res.data)) {
