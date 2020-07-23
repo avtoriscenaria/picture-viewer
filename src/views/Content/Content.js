@@ -28,8 +28,8 @@ class Content extends Component{
                 let end = new Date(end_date);
 
                 date = {
-                    start_date: `${start.getFullYear()}-${start.getMonth()}-${start.getDate()}`,
-                    end_date: `${end.getFullYear()}-${end.getMonth()}-${end.getDate()}`
+                    start_date: `${start.getFullYear()}-${start.getMonth()+1}-${start.getDate()}`,
+                    end_date: `${end.getFullYear()}-${end.getMonth()+1}-${end.getDate()}`
                 }
             }
         }
