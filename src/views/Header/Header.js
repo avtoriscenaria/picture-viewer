@@ -9,7 +9,7 @@ import connect from "react-redux/es/connect/connect";
 import {setPictures, choosePicture} from "../../redux/actions";
 import {Button} from "../../components";
 import t from '../../constants/ru';
-import pictures from "../../redux/reducers/pictures";
+import Icon from "../../components/Icon/Icon";
 
 registerLocale('ru', ru);
 
@@ -139,7 +139,9 @@ class Header extends Component{
                     </div>
                 </div>
                 <div className={'right-part'}>
-                    <Button label={t.picture_of_the_day} disabled={disabled} onClick={this.getDayPicture}/>
+                    <Button label={t.picture_of_the_day} disabled={disabled} onClick={this.getDayPicture}
+                            icon={<Icon name={'today'} color={'white'} size={14}/>}
+                            />
                 </div>
             </div>
         )

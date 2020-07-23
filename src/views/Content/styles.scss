@@ -1,3 +1,13 @@
-.content {
-  height: 100%;
+@import "../../styles/sizes";
+
+.App {
+  @media (max-width: $mobile) {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .content {
+    height: 100%;
+  }
 }
+

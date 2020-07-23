@@ -8,7 +8,8 @@ export default class Button extends Component{
     static propTypes = {
         onClick: PropTypes.func,
         label: PropTypes.string,
-        disabled: PropTypes.bool
+        disabled: PropTypes.bool,
+        icon: PropTypes.object
     };
 
     onClick = () => {
@@ -20,11 +21,12 @@ export default class Button extends Component{
     };
 
     render() {
-        const {label, disabled} = this.props;
+        const {label, disabled, icon} = this.props;
 
         return (
             <div className={`button${disabled ? ' disabled' : ''}`} onClick={this.onClick}>
-                {label}
+                <div className={'b-label'}>{label}</div>
+                <div className={'b-icon'}>{icon}</div>
             </div>
         )
     }
